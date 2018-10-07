@@ -26,8 +26,7 @@ class App extends Component {
     return (
       <div className="App">
       <Header searchText={this.state.text} searchPhrase={this.getSearchingText} addAction={this.addNewContact}/>
-        <ContactList users={this.state.filteredUsers} onDelete={this.deleteContact}/>
-        <p>Control text: {this.state.text}</p>
+        <ContactList users={this.state.filteredUsers} onDelete={this.deleteContact} onEdit={this.editContact}/>
       </div>
     );
   }
@@ -68,6 +67,20 @@ class App extends Component {
       users: updateUser,
       filteredUsers: updateUser
     })
+  }
+  editContact = (name, phone, oldPhone) => {
+    const allUsers = this.state.users;
+      const users = allUsers.map(user =>{
+        if(user.phone === oldPhone) {
+          user.name = name;
+          user.phone = phone;
+        }
+        return user; 
+      });
+      this.setState({
+        users,
+        filteredUsers: users
+      })
   }
 }
 
