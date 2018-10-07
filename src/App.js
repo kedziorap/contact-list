@@ -40,12 +40,15 @@ class App extends Component {
   }
   filterUsers() {
     const text = this.state.text;
-    const users = this.state.users;
     this.setState(
       {
-        filteredUsers: users.filter(user => user.name.toLowerCase().includes(text.toLowerCase()) || user.phone.toString().includes(text))
+        filteredUsers: this.getFiltredUsers(text)
       }
     )
+  }
+  getFiltredUsers(text){
+    const users = this.state.users;
+    return users.filter(user => user.name.toLowerCase().includes(text.toLowerCase()) || user.phone.toString().includes(text))
   }
 }
 
