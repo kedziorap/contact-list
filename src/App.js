@@ -1,47 +1,33 @@
 import React, { Component } from 'react';
 import './App.css';
+import Header from './components/Header/Header';
+import ContactList from './components/ContactsList/ContactsList';
+const users = [
+  {
+    id: 1,
+    name: 'Piotr',
+    phone: '789123456'
+  },
+  {
+    id: 2,
+    name: 'Paweł',
+    phone: '123654879'
+  }
+];
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      users: users,
+      filteredUsers: []
+    };
+  }
   render() {
     return (
       <div className="App">
-      <header>
-            <h1>Contact list</h1>
-            <div>
-                Add contact: <button>+</button>
-            </div>
-            <div>
-                Search contact: <input type="text"/>
-            </div>
-        </header>
-        <main>
-            <div>
-                <p>
-                    <span>Piotr</span><br/>
-                    <span>4485691564</span>
-                </p>
-                <button>Edytuj</button><button>Usuń</button>
-            </div>
-            <div>
-                <p>
-                    <span>Piotr</span><br/>
-                    <span>4485691564</span>
-                </p>
-                <button>Edytuj</button><button>Usuń</button>
-            </div>
-            <div>
-                <p>
-                    <span>Piotr</span><br/>
-                    <span>4485691564</span>
-                </p>
-                <button>Edytuj</button><button>Usuń</button>
-            </div>
-        </main>
-        <dialog open>
-            name: <input type="text"/><br/>
-            phone: <input type="tel" /><br/>
-            <button>Ok</button> <button>Anuluj</button>
-        </dialog>
+      <Header />
+        <ContactList users={this.state.users}/>
       </div>
     );
   }
