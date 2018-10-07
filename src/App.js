@@ -36,7 +36,16 @@ class App extends Component {
   getSearchingText = (text) =>{
     this.setState({
       text
-    })
+    }, this.filterUsers);
+  }
+  filterUsers() {
+    const text = this.state.text;
+    const users = this.state.users;
+    this.setState(
+      {
+        filteredUsers: users.filter(user => user.name.toLowerCase().includes(text.toLowerCase()) || user.phone.toString().includes(text))
+      }
+    )
   }
 }
 
