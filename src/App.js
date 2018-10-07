@@ -20,16 +20,23 @@ class App extends Component {
     super();
     this.state = {
       users: users,
-      filteredUsers: []
+      filteredUsers: users,
+      text: ''
     };
   }
   render() {
     return (
       <div className="App">
-      <Header />
-        <ContactList users={this.state.users}/>
+      <Header searchText={this.state.text} searchPhrase={this.getSearchingText}/>
+        <ContactList users={this.state.filteredUsers} />
+        <p>Control text: {this.state.text}</p>
       </div>
     );
+  }
+  getSearchingText = (text) =>{
+    this.setState({
+      text
+    })
   }
 }
 

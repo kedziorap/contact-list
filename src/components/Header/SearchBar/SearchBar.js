@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 
 class SearchBar extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-            searchText: ''
-        }
+            searchText: props.searchText
+        };
     } 
     render() {
         return(
@@ -22,7 +22,7 @@ class SearchBar extends Component {
     onChangeInput = (e) => {
         this.setState({
             searchText: e.target.value
-        })
+        }, this.props.searchPhrase(e.target.value))
     }
 }
 
