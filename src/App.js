@@ -26,7 +26,7 @@ class App extends Component {
     return (
       <div className="App">
       <Header searchText={this.state.text} searchPhrase={this.getSearchingText} addAction={this.addNewContact}/>
-        <ContactList users={this.state.filteredUsers} />
+        <ContactList users={this.state.filteredUsers} onDelete={this.deleteContact}/>
         <p>Control text: {this.state.text}</p>
       </div>
     );
@@ -62,7 +62,12 @@ class App extends Component {
     }
   }
   deleteContact = phone => {
-
+    const users = this.state.users;
+    const updateUser = users.filter(user => user.phone !== phone);
+    this.setState({
+      users: updateUser,
+      filteredUsers: updateUser
+    })
   }
 }
 
