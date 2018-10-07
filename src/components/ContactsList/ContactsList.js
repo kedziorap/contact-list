@@ -1,10 +1,10 @@
 import React from 'react';
 import Contact from './Contact/Contact';
 
-const ContactList = ({users, onDelete, onEdit}) => {
+const ContactList = ({users, onDelete, onEdit, editionInProgress, canEdit}) => {
     if (users.length > 0) {
         const usersList = users.map((user)=>{
-            return <Contact name={user.name} key={user.phone} phone={user.phone} onDelete={onDelete} onEdit={onEdit}/>
+            return <Contact name={user.name} key={user.phone} phone={user.phone} onDelete={onDelete} onEdit={onEdit} editionInProgress={editionInProgress} canEdit={canEdit}/>
         });
         return(
             <main>

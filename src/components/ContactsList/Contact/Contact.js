@@ -27,7 +27,7 @@ class Contact extends Component {
                         <span>{this.props.name}</span><br/>
                         <span>{this.props.phone}</span>
                     </p>
-                    <button onClick={this.toggleEdit}>Edit</button><button onClick={()=>this.props.onDelete(this.props.phone)}>Delete</button>
+                    <button onClick={this.toggleEdit} disabled={this.props.canEdit}>Edit</button><button onClick={()=>this.props.onDelete(this.props.phone)}disabled={this.props.canEdit}>Delete</button>
                 </div>
             );
         }
@@ -47,7 +47,7 @@ class Contact extends Component {
     toggleEdit = () => {
         this.setState({
             isEditing: !this.state.isEditing
-        });
+        }, this.props.editionInProgress());
     }
     onChangeName = e =>{
         const name = e.target.value;

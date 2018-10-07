@@ -13,10 +13,10 @@ class SearchBar extends Component {
         return(
             <div>
                 <div>
-                    Add contact: <button onClick={this.showAddDialog}>+</button>
+                    Add contact: <button onClick={this.showAddDialog} disabled={this.props.editionInProgress}>+</button>
                 </div>
                 <div>
-                    Search contact: <input type="text" value={this.state.searchText} onChange={this.onChangeInput}/>
+                    Search contact: <input type="text" value={this.state.searchText} onChange={this.onChangeInput} disabled={this.props.editionInProgress}/>
                 </div>
                 {this.state.isAddIng && <AddContact show={this.hideAddig} addAction={this.props.addAction}/>}
             </div>

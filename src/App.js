@@ -19,14 +19,15 @@ class App extends Component {
     this.state = {
       users: users,
       filteredUsers: users,
-      text: ''
+      text: '',
+      edition: false
     };
   }
   render() {
     return (
       <div className="App">
-      <Header searchText={this.state.text} searchPhrase={this.getSearchingText} addAction={this.addNewContact}/>
-        <ContactList users={this.state.filteredUsers} onDelete={this.deleteContact} onEdit={this.editContact}/>
+      <Header searchText={this.state.text} searchPhrase={this.getSearchingText} addAction={this.addNewContact} editionInProgress={this.state.edition}/>
+        <ContactList users={this.state.filteredUsers} onDelete={this.deleteContact} onEdit={this.editContact} editionInProgress={this.editionInProgress} canEdit={this.state.edition}/>
       </div>
     );
   }
@@ -80,7 +81,12 @@ class App extends Component {
       this.setState({
         users,
         filteredUsers: users
-      })
+      });
+  }
+  editionInProgress = () => {
+    this.setState({
+      edition: !this.state.edition
+    })
   }
 }
 
