@@ -4,7 +4,7 @@ import Contact from './Contact/Contact';
 const ContactList = ({users}) => {
     if (users.length > 0) {
         const usersList = users.map((user)=>{
-            return <Contact name={user.name} key={user.id} phone={user.phone}/>
+            return <Contact name={user.name} key={user.phone} phone={user.phone}/>
         });
         return(
             <main>
