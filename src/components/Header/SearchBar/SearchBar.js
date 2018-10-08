@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import AddContact from './AddContact/AddContact';
-
+import './SearchBar.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 class SearchBar extends Component {
     constructor(props) {
         super(props);
@@ -11,12 +12,11 @@ class SearchBar extends Component {
     } 
     render() {
         return(
-            <div>
-                <div>
-                    Add contact: <button onClick={this.showAddDialog} disabled={this.props.editionInProgress}>+</button>
+            <div className="searchbox">
+                <div> <button className="button"onClick={this.showAddDialog} disabled={this.props.editionInProgress}><FontAwesomeIcon icon="user-plus"/></button>
                 </div>
                 <div>
-                    Search contact: <input type="text" value={this.state.searchText} onChange={this.onChangeInput} disabled={this.props.editionInProgress}/>
+                <label className="icon" htmlFor="search"><FontAwesomeIcon icon="search"/> </label><input className="searchbar" id="search" type="text" value={this.state.searchText} onChange={this.onChangeInput} disabled={this.props.editionInProgress} placeholder="Search contact"/>
                 </div>
                 {this.state.isAddIng && <AddContact show={this.hideAddig} addAction={this.props.addAction}/>}
             </div>
@@ -29,7 +29,7 @@ class SearchBar extends Component {
     }
     showAddDialog = () => {
         this.setState({
-            isAddIng: true
+            isAddIng: !this.state.isAddIng
         })
     }
     onChangeInput = (e) => {

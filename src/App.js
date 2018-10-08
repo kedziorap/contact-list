@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
 import ContactList from './components/ContactsList/ContactsList';
+import { library } from '@fortawesome/fontawesome-svg-core';
+//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faSearch, faUserPlus);
 const users = [
   {
     name: 'Piotr',

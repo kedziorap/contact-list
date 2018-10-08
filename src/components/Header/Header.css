@@ -1,0 +1,17 @@
+.header {
+    background-color: rgb(63, 63, 63);
+    color: white;
+    padding: 5px 0;
+    position: fixed;
+    height: 110px;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+.header-wrap {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.title {
+    margin: 0;
+}

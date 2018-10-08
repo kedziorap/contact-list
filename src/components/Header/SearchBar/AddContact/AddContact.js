@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import './AddContact.css';
 class AddDialog extends Component {
     constructor(props) {
         super(props);
@@ -12,7 +12,7 @@ class AddDialog extends Component {
     render() {
         const errors = this.state.errors.length ? 1 : null;
         return (
-            <dialog open>
+            <dialog className="addContact" open>
                 Name: <input type="text" onChange={this.onChangeInputName} value={this.state.name}/><br/>
                 Phone number: <input type="text" onChange={this.onChangeInputPhone}/><br/>
                 <button onClick={this.addUser}>Ok</button><button onClick={this.props.show} value={this.state.number}>Cancel</button>

@@ -1,5 +1,6 @@
 import React from 'react';
 import Contact from './Contact/Contact';
+import './ContactList.css';
 
 const ContactList = ({users, onDelete, onEdit, editionInProgress, canEdit}) => {
     if (users) {
