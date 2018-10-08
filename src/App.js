@@ -18,7 +18,7 @@ class App extends Component {
     super();
     this.state = {
       users: users,
-      filteredUsers: users,
+      filteredUsers: null,
       text: '',
       edition: false
     };
@@ -50,16 +50,23 @@ class App extends Component {
   }
   addNewContact = (name, phone) =>{
     const text = this.state.text;
-    if(name.includes(text) || phone.includes(text)) {
-      this.setState({
-        users: [...this.state.users, {name, phone}],
-        filteredUsers: [...this.state.users, {name, phone}]
-      }, this.filterUsers);
-    } else {
-      this.setState({
-        users: [...this.state.users, {name, phone}]
-      });
+    console.log(name, phone)
+    const checkPhone = this.checkPhone(phone);
+    const checkName = this.checkName(name);
+    if (checkName === 1 && checkPhone === 1) {
+      if(name.includes(text) || phone.includes(text)) {
+        this.setState({
+          users: [...this.state.users, {name, phone}],
+          filteredUsers: [...this.state.users, {name, phone}]
+        }, this.filterUsers);
+      } else {
+        this.setState({
+          users: [...this.state.users, {name, phone}]
+        });
+      }
+      return 1
     }
+    return [checkPhone, checkName];
   }
   deleteContact = phone => {
     const users = this.state.users;
@@ -87,6 +94,34 @@ class App extends Component {
     this.setState({
       edition: !this.state.edition
     })
+  }
+  checkName = name => {
+    name = name.trim();
+    const reg = new RegExp('[A-z0-9 -]');
+    if (reg.test(name) && name.length > 2) {
+      return 1
+    } else if (name.length <= 2){
+      return 'Name is too short. You need minimum 3 characters!'
+    }
+    return 'In input \'name\' use characters between A and z, digit or \'=\'!';
+  }
+
+  checkPhone = phone => {
+    const reg = new RegExp('[0-9]');
+    phone=phone.trim();
+    if (reg.test(phone) && phone.length > 5) {
+      return 1
+    } else if (phone.length <=5 ) {
+      return 'Phone number is too short. You need minimum 6 digits!'
+    }
+    return 'Characters in \'phone\' input must be digit!';
+  }
+  componentDidMount() {
+    if (this.state.users.length > 0) {
+      this.setState({
+        filteredUsers: this.state.users
+      });
+    }
   }
 }
 

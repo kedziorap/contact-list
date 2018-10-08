@@ -4,7 +4,7 @@ import SearchBar from './SearchBar/SearchBar';
      return (
         <header>
             <h1>Contact list</h1>
-            <SearchBar searchText={searchText} searchPhrase={searchPhrase} addAction={addAction} editionInProgress={editionInProgress}/>
+            <SearchBar searchText={searchText} searchPhrase={searchPhrase} addAction={addAction} editionInProgress={editionInProgress} />
 
         </header>
      )
