@@ -13,10 +13,20 @@ class AddDialog extends Component {
         const errors = this.state.errors.length ? 1 : null;
         return (
             <dialog className="addContact" open>
-                Name: <input type="text" onChange={this.onChangeInputName} value={this.state.name}/><br/>
-                Phone number: <input type="text" onChange={this.onChangeInputPhone}/><br/>
-                <button onClick={this.addUser}>Ok</button><button onClick={this.props.show} value={this.state.number}>Cancel</button>
-                {errors && (this.state.errors).map(err => <p className="error" key={err}>{err}</p>)}
+                <div className="row">
+                    <input type="text" onChange={this.onChangeInputName} value={this.state.name} placeholder="Name"/>
+                </div>
+                <div className="row">
+                    <input type="text" onChange={this.onChangeInputPhone} placeholder="Phone"/>
+                </div>
+                <div className="row">
+                    <div className="errors">
+                        {errors && (this.state.errors).map(err => <span className="error" key={err}>{err}</span>)}
+                    </div>
+                    <div className="nav">
+                        <button onClick={this.addUser} className="confirm">Ok</button><button className="cancel" onClick={this.props.show} value={this.state.number}>Cancel</button>
+                    </div>
+                </div>
             </dialog>
         )
     }
