@@ -7,7 +7,7 @@ const ContactList = ({users, onDelete, onEdit, editionInProgress, canEdit}) => {
         const usersList = users.map((user)=>{
             return <Contact name={user.name} key={user.phone} phone={user.phone} onDelete={onDelete} onEdit={onEdit} editionInProgress={editionInProgress} canEdit={canEdit}/>
         });
-        if(users.length == 0) {
+        if(users.length === 0) {
             return (
             <main>
                 <p>Nothing found</p>

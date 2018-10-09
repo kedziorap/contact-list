@@ -16,13 +16,24 @@ class Contact extends Component {
         const errors = this.state.errors.length ? 1 : null;
         if(this.state.isEditing) {
             return(
-                <div>
-                    <p>
-                        <input type="text" value={this.state.name} onChange={this.onChangeName} placeholder="Name"/>   <br/>
-                        <input type="text" value={this.state.phone} onChange={this.onChangePhone} placeholder="Phone number"/> <br/>
-                        {errors && (this.state.errors).map(err => <span className="error" key={err}>{err}<br/></span>)}
-                    </p>
-                    <button onClick={this.editInputs}>Ok</button><button onClick={this.cancelEditing}>Cancel</button>
+                <div className="contact">
+                    <div className="contactInfo">
+                        <div className="iconUser">
+                            <FontAwesomeIcon icon="user-alt" />
+                        </div>
+                        <div className="contactDeatils">
+                            <div>
+                                <input type="text" value={this.state.name} onChange={this.onChangeName} placeholder="Name"/>   <br/>
+                                <input type="text" value={this.state.phone} onChange={this.onChangePhone} placeholder="Phone number"/> <br/>
+                                {errors && (this.state.errors).map(err => <span className="error" key={err}>{err}<br/></span>)}
+                            </div>
+                        </div>
+                    </div>
+                    <div className="btns-nav">
+                        <div>
+                        <button onClick={this.editInputs}>Ok</button><button onClick={this.cancelEditing}>Cancel</button>
+                        </div>
+                    </div>
                 </div>
             )
         } else {

@@ -9,12 +9,64 @@ import { faSearch, faUserPlus, faUserAlt } from '@fortawesome/free-solid-svg-ico
 library.add(faSearch, faUserPlus, faUserAlt);
 const users = [
   {
-    name: 'Piotr',
+    name: 'Paul',
     phone: '789123456'
   },
   {
-    name: 'Paweł',
+    name: 'Nick',
     phone: '123654879'
+  },
+  {
+    name: 'Mark',
+    phone: '54825211'
+  },
+  {
+    name: 'John',
+    phone: '21543213'
+  },
+  {
+    name: 'Ross',
+    phone: '67567567'
+  },
+  {
+    name: 'Joseph',
+    phone: '4754512'
+  },
+  {
+    name: 'Alan',
+    phone: '5843864546'
+  },
+  {
+    name: 'Monica',
+    phone: '45345353'
+  },
+  {
+    name: 'Chandler',
+    phone: '558824214'
+  },
+  {
+    name: 'Phoebe',
+    phone: '2454864564'
+  },
+  {
+    name: 'Rachel',
+    phone: '123778789'
+  },
+  {
+    name: 'Janice',
+    phone: '1454879'
+  },
+  {
+    name: 'Maria',
+    phone: '4548324321'
+  },
+  {
+    name: 'Paul',
+    phone: '8798454'
+  },
+  {
+    name: 'Carl',
+    phone: '45645469'
   }
 ];
 
