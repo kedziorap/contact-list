@@ -4,9 +4,9 @@ import Header from './components/Header/Header';
 import ContactList from './components/ContactsList/ContactsList';
 import { library } from '@fortawesome/fontawesome-svg-core';
 //import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faUserPlus, faUserAlt } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faSearch, faUserPlus);
+library.add(faSearch, faUserPlus, faUserAlt);
 const users = [
   {
     name: 'Piotr',

@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import './Contact.css';
 
 class Contact extends Component {
     constructor(props){
@@ -25,12 +27,23 @@ class Contact extends Component {
             )
         } else {
             return (
-                <div>
-                    <p>
-                        <span>{this.props.name}</span><br/>
-                        <span>{this.props.phone}</span>
-                    </p>
-                    <button onClick={this.toggleEdit} disabled={this.props.canEdit}>Edit</button><button onClick={()=>this.props.onDelete(this.props.phone)}disabled={this.props.canEdit}>Delete</button>
+                <div className="contact">
+                    <div className="contactInfo">
+                        <div className="iconUser">
+                            <FontAwesomeIcon icon="user-alt" />
+                        </div>
+                        <div className="contactDeatils">
+                            <div>
+                                <span className="name">{this.props.name}</span><br/>
+                                <span className="phone">{this.props.phone}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="btns-nav">
+                        <div>
+                            <button className="edit" onClick={this.toggleEdit} disabled={this.props.canEdit}>Edit</button><button className="delete" onClick={()=>this.props.onDelete(this.props.phone)}disabled={this.props.canEdit}>Delete</button>
+                        </div>
+                    </div>
                 </div>
             );
         }
